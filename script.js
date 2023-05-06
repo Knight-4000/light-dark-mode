@@ -30,10 +30,29 @@ function switchTheme(event) {
     if (event.target.checked) {
         document.documentElement.setAttribute('data-theme', 'dark');
         toggleDarkLightMode(true);
+        localStorage.setItem('theme', 'dark');
     } else {
         document.documentElement.setAttribute('data-theme', 'light');
         toggleDarkLightMode(false);
+        localStorage.setItem('theme', 'light');
     }
 }
 // Event Listener
 toggleSwitch.addEventListener('change', switchTheme )
+
+// Check Local Storage For Theme
+
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+        imageMode('dark');
+        toggleIcon.children[0].textContent = 'Dark Mode';
+        toggleIcon.children[1].classList = 'fas fa-moon';
+        nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
+        textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
+    }
+} else {
+    
+}
