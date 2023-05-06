@@ -1,6 +1,8 @@
 const toggleSwitch = document.querySelector('input[type=checkbox]');
 const nav = document.getElementById('nav');
 const toggleIcon = document.getElementById('toggle-icon');
+// By declaring that toggleIcon is the toggle-icon id, we can also get 
+// toggle id's children on index.html
 const image1 = document.getElementById('image1');
 const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
